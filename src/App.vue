@@ -2,19 +2,22 @@
   <div id="app">
     <section class="hero is-primary is-fullheight">
         <div class="hero-body">
+
           <div class="img-container">
-                    <img v-for="song in songs" :key="song.src" :src="(song.img)"  @click="play(song)" alt="" class="img-name image is-128x128" :class="(song.src == current.src) ?  'song playing' : 'song'">
+            <img v-for="song in songs" :key="song.src" :src="(song.img)"  @click="play(song)" alt="" class="img-name image" :class="(song.src == current.src) ?  'song playing' : 'song'">
           </div>
-          <div class="current-title">
-            <p class="title is-1">Baify-Player</p>
-            <p class="subtitle">{{ current.title }} - {{ current.artist }}</p>
+
+          <div class="current">
+            <p class="title is-1">{{ current.title }}</p>
+            <p class="subtitle"> by {{ current.artist }}</p>
+            <div class="controls">
+              <b-button class="prev" @click="prev" type="is-dark" size="is-large"><b-icon pack="fas" icon="backward" size="is-small"></b-icon></b-button>
+              <b-button class="play" v-if="!isPlaying" @click="play" type="is-dark" size="is-large"> <b-icon pack="fas" icon="play" size="is-small"></b-icon></b-button>
+              <b-button class="pause" v-else @click="pause" type="is-dark" size="is-large"><b-icon pack="fas" icon="pause" size="is-small"></b-icon></b-button>
+              <b-button class="next" @click="next" type="is-dark" size="is-large"><b-icon pack="fas" icon="forward" size="is-small"></b-icon></b-button>
+            </div>
           </div>
-          <div class="controls">
-            <b-button class="prev" @click="prev" type="is-dark" size="is-large"><b-icon pack="fas" icon="backward" size="is-small"></b-icon></b-button>
-            <b-button class="play" v-if="!isPlaying" @click="play" type="is-dark" size="is-large"> <b-icon pack="fas" icon="play" size="is-small"></b-icon></b-button>
-            <b-button class="pause" v-else @click="pause" type="is-dark" size="is-large"><b-icon pack="fas" icon="pause" size="is-small"></b-icon></b-button>
-            <b-button class="next" @click="next" type="is-dark" size="is-large"><b-icon pack="fas" icon="forward" size="is-small"></b-icon></b-button>
-          </div>
+
         </div>
 </section>
     
@@ -122,10 +125,21 @@ export default {
 <style>
 .controls {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  padding: 30px 15px;
+  width: 500px;
 }
-
+.hero-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.current {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
 /* Start Playlist Design  */
 .img-container {
   display: flex;
@@ -134,9 +148,11 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   align-content: center;
+  max-width: 950px;
 }
 
 img {
+  width: 250px;
   border-radius: 10px;
   margin: 10px;
   cursor: pointer;
@@ -149,5 +165,8 @@ h1 {
   text-align: center;
   top: 10px
 }
-
+p {
+  width: 500px;
+  text-align: center;
+}
 </style>
