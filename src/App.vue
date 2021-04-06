@@ -1,26 +1,25 @@
 <template>
   <div id="app">
-    <section class="hero is-primary is-fullheight">
-        <div class="hero-body">
-
-          <div class="img-container">
-            <img v-for="song in songs" :key="song.src" :src="(song.img)"  @click="play(song)" alt="" class="img-name image" :class="(song.src == current.src) ?  'song playing' : 'song'">
+        <div class="my-container">
+          <h1 class="my-title">Baify</h1>
+          
+            <div class="my-img-container">
+              
+            <img v-for="song in songs" :key="song.src" :src="(song.img)"  @click="play(song)" alt="" class="img-name image" :class="(song.src == current.src) ?  'song playing' : 'song'"> 
           </div>
+          
 
           <div class="current">
-            <p class="title is-1">{{ current.title }}</p>
-            <p class="subtitle"> by {{ current.artist }}</p>
-            <div class="controls">
-              <b-button class="prev" @click="prev" type="is-dark" size="is-large"><b-icon pack="fas" icon="backward" size="is-small"></b-icon></b-button>
-              <b-button class="play" v-if="!isPlaying" @click="play" type="is-dark" size="is-large"> <b-icon pack="fas" icon="play" size="is-small"></b-icon></b-button>
-              <b-button class="pause" v-else @click="pause" type="is-dark" size="is-large"><b-icon pack="fas" icon="pause" size="is-small"></b-icon></b-button>
-              <b-button class="next" @click="next" type="is-dark" size="is-large"><b-icon pack="fas" icon="forward" size="is-small"></b-icon></b-button>
-            </div>
+                <p class="current-ta">{{ current.title }} <br> {{ current.artist }}</p>
+                <div class="controls">
+                  <button class="prev button is-rounded" @click="prev" size="is-medium"><b-icon pack="fas" icon="backward" size="is-small"></b-icon></button>
+                  <button class="play button is-rounded" v-if="!isPlaying" @click="play" type="is-dark" size="is-medium"> <b-icon pack="fas" icon="play" size="is-small"></b-icon></button>
+                  <button class="pause button is-rounded" v-else @click="pause" type="is-dark" size="is-medium"><b-icon pack="fas" icon="pause" size="is-small"></b-icon></button>
+                  <button class="next button is-rounded" @click="next" type="is-dark" size="is-medium"><b-icon pack="fas" icon="forward" size="is-small"></b-icon></button>
+                </div>
           </div>
 
         </div>
-</section>
-    
   </div>
 </template>
 
@@ -123,25 +122,45 @@ export default {
 </script>
 
 <style>
+html, body {
+  margin: 0;
+}
+.my-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: black;
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  
+}
+
 .controls {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 500px;
-}
-.hero-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin-right: 20px;
+
 }
 .current {
   display: flex;
-  flex-direction: column;
-  justify-content: center; 
+  flex-direction: row;
+  justify-content: space-between; 
   align-items: center; 
+
+  background-color: rgb(24, 24, 24);
+  width: 100%;
+  height: 100px;
+  padding: 0 20px 0 10px;
+  text-align: center;
 }
+
 /* Start Playlist Design  */
-.img-container {
+.my-img-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -153,20 +172,25 @@ export default {
 
 img {
   width: 250px;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 20px;
+  margin: 20px;
   cursor: pointer;
 }
 img:hover {
   opacity: 60%;
 }
 /* END Playlist Design */
-h1 {
-  text-align: center;
-  top: 10px
+.current-ta {
+  color: whitesmoke;
+  font-size: 1.2em;
+  width: 400px;
 }
-p {
-  width: 500px;
-  text-align: center;
+
+.my-title {
+  margin-top: 50px;
+  font-size: 2em;
+  font-weight: 900;
+  color: whitesmoke;
 }
+
 </style>
