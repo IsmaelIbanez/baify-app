@@ -1,35 +1,22 @@
 <template>
   <div id="app">
-    <div class="hero-body is-flex">
-      <header>
-        <h1 class="is-size-1">Baify - Player</h1>
-      </header>
-      <main>
-
-              <h2 class="song-title">{{current.title}} - <span>{{ current.artist }}</span></h2>
-              <div class="controls">
-                <b-button class="prev" @click="prev" type="is-dark" size="is-large"><b-icon pack="fas" icon="backward" size="is-small"></b-icon></b-button>
-                <b-button class="play" v-if="!isPlaying" @click="play" type="is-dark" size="is-large"> <b-icon pack="fas" icon="play" size="is-small"></b-icon></b-button>
-                <b-button class="pause" v-else @click="pause" type="is-dark" size="is-large"><b-icon pack="fas" icon="pause" size="is-small"></b-icon></b-button>
-                <b-button class="next" @click="next" type="is-dark" size="is-large"><b-icon pack="fas" icon="forward" size="is-small"></b-icon></b-button>
-              </div>
-
-            
-            <!-- <button v-for="song in songs" :key="song.src" @click="play(song)" :class="(song.src == current.src) ?  'song playing' : 'song'">
-              {{ song.title}} - {{song.artist}}
-            </button> -->
-            <div class="playlist">
-              <h3>Playlists</h3>
-              <b-button class="is-light" v-for="song in songs" :key="song.src" @click="play(song)" :class="(song.src == current.src) ?  'song playing' : 'song'">
-               <!--  <img :src="(song.img)" alt="" class="image is-32x32"> -->
-               {{ song.title }} - {{song.artist}}
-              </b-button>
-              
-              </div> 
-           
-        
-      </main>
-    </div>
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-body">
+          <div class="img-container">
+                    <img v-for="song in songs" :key="song.src" :src="(song.img)"  @click="play(song)" alt="" class="img-name image is-128x128" :class="(song.src == current.src) ?  'song playing' : 'song'">
+          </div>
+          <div class="current-title">
+            <p class="title is-1">Baify-Player</p>
+            <p class="subtitle">{{ current.title }} - {{ current.artist }}</p>
+          </div>
+          <div class="controls">
+            <b-button class="prev" @click="prev" type="is-dark" size="is-large"><b-icon pack="fas" icon="backward" size="is-small"></b-icon></b-button>
+            <b-button class="play" v-if="!isPlaying" @click="play" type="is-dark" size="is-large"> <b-icon pack="fas" icon="play" size="is-small"></b-icon></b-button>
+            <b-button class="pause" v-else @click="pause" type="is-dark" size="is-large"><b-icon pack="fas" icon="pause" size="is-small"></b-icon></b-button>
+            <b-button class="next" @click="next" type="is-dark" size="is-large"><b-icon pack="fas" icon="forward" size="is-small"></b-icon></b-button>
+          </div>
+        </div>
+</section>
     
   </div>
 </template>
@@ -139,33 +126,28 @@ export default {
   padding: 30px 15px;
 }
 
-.playlist {
-  padding: 0px 30px;
+/* Start Playlist Design  */
+.img-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
-.playlist h3 {
-  color: black;
-  font-size: 28px;
-  font-weight: 400;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.playlist .song {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  font-size: 20px;
-  font-weight: 700;
+img {
+  border-radius: 10px;
+  margin: 10px;
   cursor: pointer;
 }
-
-.playlist .song.playing {
-  color: white;
-  background-image: linear-gradient(to right, orange, tomato);
+img:hover {
+  opacity: 60%;
+}
+/* END Playlist Design */
+h1 {
+  text-align: center;
+  top: 10px
 }
 
-.playlist .song:hover  {
-  color: red;
-}
 </style>
