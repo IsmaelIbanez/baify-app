@@ -2,20 +2,19 @@
   <div id="app">
         <div class="my-container">
           <h1 class="my-title">Baify</h1>
-          
-            <div class="my-img-container">
-              
-            <img v-for="song in songs" :key="song.src" :src="(song.img)"  @click="play(song)" alt="" class="img-name image" :class="(song.src == current.src) ?  'song playing' : 'song'"> 
+          <h3 class="my-subtitle">Select a playlist</h3>
+          <div class="my-img-container">
+            <img data-tilt v-for="song in songs" :key="song.src" :src="(song.img)"  @click="play(song)" alt="" class="img-name image" :class="(song.src == current.src) ?  'song playing' : 'song'">
           </div>
           
 
           <div class="current">
-                <p class="current-ta">{{ current.title }} <br> {{ current.artist }}</p>
+                <p class="current-ta">{{ current.playlist }} <br> {{ current.title }} - {{ current.artist }}</p>
                 <div class="controls">
-                  <button class="prev button is-rounded" @click="prev" size="is-medium"><b-icon pack="fas" icon="backward" size="is-small"></b-icon></button>
-                  <button class="play button is-rounded" v-if="!isPlaying" @click="play" type="is-dark" size="is-medium"> <b-icon pack="fas" icon="play" size="is-small"></b-icon></button>
-                  <button class="pause button is-rounded" v-else @click="pause" type="is-dark" size="is-medium"><b-icon pack="fas" icon="pause" size="is-small"></b-icon></button>
-                  <button class="next button is-rounded" @click="next" type="is-dark" size="is-medium"><b-icon pack="fas" icon="forward" size="is-small"></b-icon></button>
+                  <button class="prev button is-ghost" @click="prev" size="is-medium"><b-icon pack="fas" icon="backward" size="is-small"></b-icon></button>
+                  <button class="play button  is-ghost" v-if="!isPlaying" @click="play" type="is-dark" size="is-medium"> <b-icon pack="fas" icon="play" size="is-small"></b-icon></button>
+                  <button class="pause button is-ghost" v-else @click="pause" type="is-dark" size="is-medium"><b-icon pack="fas" icon="pause" size="is-small"></b-icon></button>
+                  <button class="next button is-ghost" @click="next" type="is-dark" size="is-medium"><b-icon pack="fas" icon="forward" size="is-small"></b-icon></button>
                 </div>
           </div>
 
@@ -33,40 +32,46 @@ export default {
       isPlaying: false,
       songs: [
         {
-          title: 'Relax / Night Light',
+          playlist: 'Relax',
+          title: 'Night Light',
           artist: 'СОЛОВЬЕВ АНДРЕЙ',
           src: require('./assets/music/Relax/relax.mp3'),
-          img: require('./assets/images/sleep.jpg')
+          img: require('./assets/images/relax.jpg')
         },
         {
-          title: 'Workout / Nviltorus',
+          playlist: 'Workout',
+          title: 'Nviltorus',
           artist: 'MAJED SALIH',
           src: require('./assets/music/Workout/workout.mp3'),
           img: require('./assets/images/work.jpg')
         },
         {
-          title: 'Chill / Chillout me',
+          playlist: 'Chill',
+          title: 'Chillout me',
           artist: 'ANTONY RAIJEKOV',
           src: require('./assets/music/Chill/Chill.mp3'),
-          img: require('./assets/images/chill.jpg')
+          img: require('./assets/images/chill.png')
         },
         {
-          title: 'Piano / Stories from Emona ',
+          playlist: 'Piano',
+          title: 'Stories from Emona ',
           artist: 'MAYA FILIPIČ',
           src: require('./assets/music/Piano/piano.mp3'),
           img: require('./assets/images/piano.jpg')
         },
         {
-          title: 'LoFi Playlist',
+          playlist: 'LoFi',
+          title: 'Add',
           artist: 'Youtube - Lee',
           src: require('./assets/music/LoFi/lofi.mp3'),
-          img: require('./assets/images/lofi.jpg')
+          img: require('./assets/images/lofi.png')
         },
         {
-          title: 'Rock / Presage',
+          playlist: 'Rock',
+          title: 'Presage',
           artist: 'COLOR OUT',
           src: require('./assets/music/Rock/rock.mp3'),
-          img: require('./assets/images/lofi.jpg')
+          img: require('./assets/images/rock.jpg')
         }
       ],
       player: new Audio()
@@ -119,6 +124,7 @@ export default {
     this.player.src = this.current.src;
   }
 }
+
 </script>
 
 <style>
@@ -175,9 +181,11 @@ img {
   border-radius: 20px;
   margin: 20px;
   cursor: pointer;
+  opacity: 55%;
+  transition: opacity 0.75s;
 }
 img:hover {
-  opacity: 60%;
+  opacity: 1;
 }
 /* END Playlist Design */
 .current-ta {
@@ -191,6 +199,19 @@ img:hover {
   font-size: 2em;
   font-weight: 900;
   color: whitesmoke;
+  text-shadow: 1px 1px 10px white;
+}
+.my-subtitle {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+button:hover {
+  opacity: 70%;
+}
+
+button {
+  margin: 5px;
 }
 
 </style>

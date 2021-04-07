@@ -12,6 +12,7 @@
   "dependencies": {
     "buefy": "^0.9.5",
     "core-js": "^3.6.5",
+    "vanilla-tilt": "^1.7.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
