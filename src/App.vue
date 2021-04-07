@@ -181,11 +181,11 @@ img {
   border-radius: 20px;
   margin: 20px;
   cursor: pointer;
-  opacity: 55%;
+  opacity: 60%;
   transition: opacity 0.75s;
 }
 img:hover {
-  opacity: 1;
+  opacity: 100%;
 }
 /* END Playlist Design */
 .current-ta {
