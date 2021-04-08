@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app">
+  <div id="app">
     <div class="my-container">
       <h1 class="my-title">Baify</h1>
       <h3 class="my-subtitle">Select a playlist</h3>
@@ -17,48 +17,53 @@
       </div>
 
       <div class="player">
-        <p class="current-ta">
+        <div class="current-ta">
           {{ current.playlist }} <br />
           {{ current.title }} - {{ current.artist }}
-        </p>
+        </div>
         <div class="controls">
           <div>
-          <button class="prev button is-ghost" @click="prev" size="is-medium">
-            <b-icon pack="fas" icon="backward" size="is-small"></b-icon>
-          </button>
-          <button
-            class="play button is-ghost"
-            v-if="!isPlaying"
-            @click="play"
-            type="is-dark"
-            size="is-medium"
-          >
-            <b-icon pack="fas" icon="play" size="is-small"></b-icon>
-          </button>
-          <button
-            class="pause button is-ghost"
-            v-else
-            @click="pause"
-            type="is-dark"
-            size="is-medium"
-          >
-            <b-icon pack="fas" icon="pause" size="is-small"></b-icon>
-          </button>
-          <button
-            class="next button is-ghost"
-            @click="next"
-            type="is-dark"
-            size="is-medium"
-          >
-            <b-icon pack="fas" icon="forward" size="is-small"></b-icon>
-          </button>
+            <button class="prev button is-ghost" @click="prev" size="is-medium">
+              <b-icon pack="fas" icon="backward" size="is-small"></b-icon>
+            </button>
+            <button
+              class="play button is-ghost"
+              v-if="!isPlaying"
+              @click="play"
+              type="is-dark"
+              size="is-medium"
+            >
+              <b-icon pack="fas" icon="play" size="is-small"></b-icon>
+            </button>
+            <button
+              class="pause button is-ghost"
+              v-else
+              @click="pause"
+              type="is-dark"
+              size="is-medium"
+            >
+              <b-icon pack="fas" icon="pause" size="is-small"></b-icon>
+            </button>
+            <button
+              class="next button is-ghost"
+              @click="next"
+              type="is-dark"
+              size="is-medium"
+            >
+              <b-icon pack="fas" icon="forward" size="is-small"></b-icon>
+            </button>
           </div>
+        </div>
 
-          <div class="slidercontainer">
-            <b-icon class="volume-icon" pack="fas" icon="volume-down"></b-icon>
-            <b-slider class="volume-slider" type="is-primary" :value="0"></b-slider>
+        <div class="slidercontainer">
+          <div class="volume-icon">
+            <b-icon pack="fas" icon="volume-down"></b-icon>
           </div>
-
+          <div class="volume-slider"><b-slider
+            type="is-primary"
+            :value="0"
+          ></b-slider></div>
+          
         </div>
       </div>
     </div>
