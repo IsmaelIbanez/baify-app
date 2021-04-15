@@ -112,3 +112,9 @@ button {
   margin: 5px;
 }
 
+.song{
+  width: 100%;
+  border-color: white;
+  border: solid;
+}
+

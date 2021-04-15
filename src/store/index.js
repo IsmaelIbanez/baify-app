@@ -10,121 +10,286 @@ export default new Vuex.Store({
     currentSong: {},
     isPlaying: false,
     audio: new Audio(),
+    currentPlaylist: "",
 
     playlists: [{
       playlist: "Relax",
       img: require("../assets/images/relax.jpg"),
+      songs: ["00001", "00002" , "00003", "00004", "00005"]
     },
     {
       playlist: "Workout",
       img: require("../assets/images/work.jpg"),
+      songs: ["00006", "00007" , "00008", "00009", "00010"]
     },
     {
       playlist: "Chill",
       img: require("../assets/images/chill.png"),
+      songs: ["00011", "00012" , "00013", "00014", "00015"]
     },
     {
       playlist: "Piano",
       img: require("../assets/images/piano.jpg"),
+      songs: ["00016", "00017" , "00018", "00019", "00020"]
     },
     {
       playlist: "LoFi",
       img: require("../assets/images/lofi.png"),
+      songs: ["00021", "00022" , "00023", "00024", "00025"]
     },
     {
       playlist: "Rock",
       img: require("../assets/images/rock.jpg"),
+      songs: ["00026", "00027" , "00028", "00029", "00030"]
     }
   ],
     songs: [
       {
+        key: "00001",
         title: "Night Light",
         artist: "СОЛОВЬЕВ АНДРЕЙ",
         src: require("../assets/music/Relax/relax.mp3"),
       },
       {
+        key: "00002",
         title: "Nviltorus",
         artist: "MAJED SALIH",
         src: require("../assets/music/Workout/workout.mp3"), 
       },
       {
+        key: "00003",
         title: "Chillout me",
         artist: "ANTONY RAIJEKOV",
         src: require("../assets/music/Chill/Chill.mp3"),      
       },
-      {       
+      {  
+        key: "00004",     
         title: "Stories from Emona ",
         artist: "MAYA FILIPIČ",
         src: require("../assets/music/Piano/piano.mp3"),      
       },
       {   
+        key: "00005",
         title: "Add",
         artist: "Youtube - Lee",
         src: require("../assets/music/LoFi/lofi.mp3"),       
       },
       {
+        key: "00006",
         title: "Presage",
         artist: "COLOR OUT",
         src: require("../assets/music/Rock/rock.mp3"),       
       },
+      {
+        key: "00007",
+        title: "Night Light",
+        artist: "СОЛОВЬЕВ АНДРЕЙ",
+        src: require("../assets/music/Relax/relax.mp3"),
+      },
+      {
+        key: "00008",
+        title: "Nviltorus",
+        artist: "MAJED SALIH",
+        src: require("../assets/music/Workout/workout.mp3"), 
+      },
+      {
+        key: "00009",
+        title: "Chillout me",
+        artist: "ANTONY RAIJEKOV",
+        src: require("../assets/music/Chill/Chill.mp3"),      
+      },
+      {       
+        key: "00010",
+        title: "Stories from Emona ",
+        artist: "MAYA FILIPIČ",
+        src: require("../assets/music/Piano/piano.mp3"),      
+      },
+      {   
+        key: "00011",
+        title: "Add",
+        artist: "Youtube - Lee",
+        src: require("../assets/music/LoFi/lofi.mp3"),       
+      },
+      {
+        key: "00012",
+        title: "Presage",
+        artist: "COLOR OUT",
+        src: require("../assets/music/Rock/rock.mp3"),       
+      },
+      {
+        key: "00013",
+        title: "Night Light",
+        artist: "СОЛОВЬЕВ АНДРЕЙ",
+        src: require("../assets/music/Relax/relax.mp3"),
+      },
+      {
+        key: "00014",
+        title: "Nviltorus",
+        artist: "MAJED SALIH",
+        src: require("../assets/music/Workout/workout.mp3"), 
+      },
+      {
+        key: "00015",
+        title: "Chillout me",
+        artist: "ANTONY RAIJEKOV",
+        src: require("../assets/music/Chill/Chill.mp3"),      
+      },
+      {       
+        key: "00016",
+        title: "Stories from Emona ",
+        artist: "MAYA FILIPIČ",
+        src: require("../assets/music/Piano/piano.mp3"),      
+      },
+      { 
+        key: "00017",  
+        title: "Add",
+        artist: "Youtube - Lee",
+        src: require("../assets/music/LoFi/lofi.mp3"),       
+      },
+      {
+        key: "00018",
+        title: "Presage",
+        artist: "COLOR OUT",
+        src: require("../assets/music/Rock/rock.mp3"),       
+      },
+      {
+        key: "00019",
+        title: "Nviltorus",
+        artist: "MAJED SALIH",
+        src: require("../assets/music/Workout/workout.mp3"), 
+      },
+      {
+        key: "000020",
+        title: "Chillout me",
+        artist: "ANTONY RAIJEKOV",
+        src: require("../assets/music/Chill/Chill.mp3"),      
+      },
+      {       
+        key: "00021",
+        title: "Stories from Emona ",
+        artist: "MAYA FILIPIČ",
+        src: require("../assets/music/Piano/piano.mp3"),      
+      },
+      {   
+        key: "00022",
+        title: "Add",
+        artist: "Youtube - Lee",
+        src: require("../assets/music/LoFi/lofi.mp3"),       
+      },
+      {
+        key: "00023",
+        title: "Presage",
+        artist: "COLOR OUT",
+        src: require("../assets/music/Rock/rock.mp3"),       
+      },
+      {
+        key: "00024",
+        title: "Night Light",
+        artist: "СОЛОВЬЕВ АНДРЕЙ",
+        src: require("../assets/music/Relax/relax.mp3"),
+      },
+      {
+        key: "00025",
+        title: "Nviltorus",
+        artist: "MAJED SALIH",
+        src: require("../assets/music/Workout/workout.mp3"), 
+      },
+      {
+        key: "00026",
+        title: "Chillout me",
+        artist: "ANTONY RAIJEKOV",
+        src: require("../assets/music/Chill/Chill.mp3"),      
+      },
+      {   
+        key: "00027",    
+        title: "Stories from Emona ",
+        artist: "MAYA FILIPIČ",
+        src: require("../assets/music/Piano/piano.mp3"),      
+      },
+      {   
+        key: "00028",
+        title: "Add",
+        artist: "Youtube - Lee",
+        src: require("../assets/music/LoFi/lofi.mp3"),       
+      },
+      {
+        key: "00029",
+        title: "Presage",
+        artist: "COLOR OUT",
+        src: require("../assets/music/Rock/rock.mp3"),       
+      },
+      {
+        key: "00030",
+        title: "Night Light",
+        artist: "СОЛОВЬЕВ АНДРЕЙ",
+        src: require("../assets/music/Relax/relax.mp3"),
+      },
     ],
   },
   mutations: {
-    //async a la base de datos
-    play(song) {
+    play(state, song) {
       if (typeof song.src != "undefined") {
-        this.song = song;
+        state.currentSong = song;
 
-        this.audio.src = this.current.src;
+        state.audio.src = state.currentSong.src;
       }
 
-      this.audio.play();
-      this.player.addEventListener(
+      state.audio.play();
+      state.audio.addEventListener(
         "ended",
         function () {
-          this.index++;
-          if (this.index > this.songs.length - 1) {
-            this.index = 0;
+          state.index++;
+          if (state.index > state.songs.length - 1) {
+            state.index = 0;
           }
-          this.current = this.songs[this.index];
-          this.play(this.current);
-        }.bind(this)
+          state.currentSong = state.songs[state.index];
+          state.audio.play(state.currentSong);
+        }.bind(state)
       );
-      this.isPlaying = true;
+      state.isPlaying = true;
     },
-    pause() {
-      this.audio.pause();
-      this.isPlaying = false;
+    pause(state) {
+      state.audio.pause();
+      state.isPlaying = false;
     },
-    next() {
-      this.index++;
-      if (this.index > this.songs.length - 1) {
-        this.index = 0;
+    next(state) {
+      state.index++;
+      if (state.index > state.songs.length - 1) {
+        state.index = 0;
       }
 
-      this.current = this.songs[this.index];
-      this.play(this.current);
+      state.currentSong = state.songs[state.index];
+      state.audio.play(state.currentSong);
     },
-    prev() {
-      this.index--;
-      if (this.index < 0) {
-        this.index = this.songs.length - 1;
+
+    prev(state) {
+      state.index--;
+      if (state.index < 0) {
+        state.index = state.songs.length - 1;
       }
 
-      this.song = this.songs[this.index];
-      this.play(this.song.audio);
+      state.currentSong = state.songs[state.index];
+      state.audio.play(state.currentSong);
     },
 
-    setVolume(value){
-      this.audio.volume = value / 100
+    setVolume(state, value){
+      state.audio.volume = value / 100
+    },
+
+    goToPlaylist(state, playlist){
+      state.currentPlaylist = playlist
     }
   },
   actions: {
     
   },
-  created() {
-    this.current = this.song[this.index];
-    this.player.src = this.current.src;
+  created(state) {
+    state.current = state.song[state.index];
+    state.player.src = state.currentSong.src;
+    
+    if (localStorage.getItem("currentPlaylist") != ""){
+      state.currentPlaylist = localStorage.getItem("currentPlaylist");
+    }
   },
 
   getters: {

@@ -1,14 +1,16 @@
 <template>
     <div class="my-img-container">
         <img
+          data-tilt
           :src="playlist.img"
+          @click="goToPlaylist(playlist.playlist)"
           class="img-name image"
         />
       </div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 
 export default {
@@ -26,7 +28,7 @@ export default {
   },
 
   methods: {
-      ...mapActions(["play"]),  
+      ...mapMutations(["play", "goToPlaylist"]),  
 },
 }
 </script>

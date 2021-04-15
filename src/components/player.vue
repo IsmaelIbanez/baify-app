@@ -6,7 +6,7 @@
     </div>
     <div class="controls">
       <div>
-        <button class="prev button is-ghost" @click="prev" size="is-medium">
+        <button class="prev button is-ghost" @click="play(songs[songs.indexOf(currentSong) - 1])" size="is-medium">
           <b-icon pack="fas" icon="backward" size="is-small"></b-icon>
         </button>
         <button
@@ -29,7 +29,7 @@
         </button>
         <button
           class="next button is-ghost"
-          @click="next"
+          @click="play(songs[songs.indexOf(currentSong) + 1])"
           type="is-dark"
           size="is-medium"
         >
@@ -43,24 +43,30 @@
         <b-icon pack="fas" icon="volume-down"></b-icon>
       </div>
       <div class="volume-slider">
-        <b-slider type="is-primary" v-on:change="setVolume(this.value)" :value="0"></b-slider>
+        <b-slider type="is-primary" @change="setVolume(aria-valuenow)" :value="50"></b-slider>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "player",
 
   computed: {
-    ...mapState(["currentSong", "isPlaying"]),
+    ...mapState(["currentSong", "isPlaying", "songs"]),
   },
 
   methods: {
-      ...mapActions(["play", "setVolume", "prev", "next", "pause"]),  
+      ...mapMutations({
+        play: 'play',
+        pause: 'pause',
+        next: 'next',
+        prev: 'prev',
+        setVolume: 'setVolume'
+      }),  
 },
 }
 </script>
