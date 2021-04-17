@@ -10,35 +10,38 @@ export default new Vuex.Store({
     currentSong: {},
     isPlaying: false,
     audio: new Audio(),
-    currentPlaylist: "",
+    currentPlaylistStored: "",
+    currentPlaylist:{},
+    currentPlaylistSongs: [],
+    matchedSong:[],
 
     playlists: [{
-      playlist: "Relax",
+      name: "Relax",
       img: require("../assets/images/relax.jpg"),
       songs: ["00001", "00002" , "00003", "00004", "00005"]
     },
     {
-      playlist: "Workout",
+      name: "Workout",
       img: require("../assets/images/work.jpg"),
       songs: ["00006", "00007" , "00008", "00009", "00010"]
     },
     {
-      playlist: "Chill",
+      name: "Chill",
       img: require("../assets/images/chill.png"),
       songs: ["00011", "00012" , "00013", "00014", "00015"]
     },
     {
-      playlist: "Piano",
+      name: "Piano",
       img: require("../assets/images/piano.jpg"),
       songs: ["00016", "00017" , "00018", "00019", "00020"]
     },
     {
-      playlist: "LoFi",
+      name: "LoFi",
       img: require("../assets/images/lofi.png"),
       songs: ["00021", "00022" , "00023", "00024", "00025"]
     },
     {
-      playlist: "Rock",
+      name: "Rock",
       img: require("../assets/images/rock.jpg"),
       songs: ["00026", "00027" , "00028", "00029", "00030"]
     }
@@ -258,7 +261,7 @@ export default new Vuex.Store({
         state.index = 0;
       }
 
-      state.currentSong = state.songs[state.index];
+      state.currentSong = state.currentPlaylistSongs[state.index];
       state.audio.play(state.currentSong);
     },
 
@@ -268,7 +271,7 @@ export default new Vuex.Store({
         state.index = state.songs.length - 1;
       }
 
-      state.currentSong = state.songs[state.index];
+      state.currentSong = state.currentPlaylistSongs[state.index];
       state.audio.play(state.currentSong);
     },
 
@@ -276,9 +279,30 @@ export default new Vuex.Store({
       state.audio.volume = value / 100
     },
 
-    goToPlaylist(state, playlist){
-      state.currentPlaylist = playlist
-    }
+    goToPlaylist(state, newPlaylist){
+      state.currentPlaylistStored = newPlaylist
+      state.playlists.forEach(playlist => {
+        if(playlist.name == state.currentPlaylistStored){
+          state.currentPlaylist = playlist
+        }
+      })
+      
+      state.currentPlaylist.songs.forEach(songToStore => {
+        state.matchedSong = state.songs.filter(song => song.key == songToStore)
+        if(state.matchedSong != null){
+          state.currentPlaylistSongs.push(state.matchedSong[0]);
+        }
+      }); 
+      
+    },
+
+   /* setCurrentPlaylistSongs(state, playlist){
+      playlist.songs.forEach(songToStore => {
+        state.currentPlaylistSongs.push(state.songs.filter(song => song.key == songToStore));
+      }); 
+
+      }*/
+  
   },
   actions: {
     

@@ -3,7 +3,7 @@
         <img
           data-tilt
           :src="playlist.img"
-          @click="goToPlaylist(playlist.playlist)"
+          @click="goToPlaylist(playlist.name)"
           class="img-name image"
         />
       </div>
@@ -18,7 +18,7 @@ export default {
 
   props: {
     playlist:{
-      playlist: String,
+      name: String,
       img: String
     }
   },

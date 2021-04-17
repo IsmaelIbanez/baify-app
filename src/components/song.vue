@@ -16,6 +16,7 @@ export default {
 
   props:{
     song:{
+      key: String,
       title: String,
       artist: String,
       src: String,
@@ -23,7 +24,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["songs", "currentPlaylist"]),
+    ...mapState(["songs"]),
   },
 
   methods: {

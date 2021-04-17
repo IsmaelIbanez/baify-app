@@ -3,17 +3,17 @@
     <div class="my-container">
       <h1 class="my-title">Baify</h1>
 
-      <div v-if="currentPlaylist == ''">
+      <div v-if="currentPlaylistStored == ''">
         <h3 class="my-subtitle">Select a playlist</h3>
         <playlists
           v-for="playlist in this.playlists"
-          :key="playlists.indexOf(playlist) + playlist.playlist"
+          :key="playlist.name"
           :playlist="playlist"
         />
       </div>
       
       <div v-else>
-         <song v-for="song in this.songs" :key="song.key" :song="song" />
+         <song v-for="song in this.currentPlaylistSongs" :key="song.key" :song="song" />
       </div>
 
      
@@ -46,7 +46,7 @@ export default {
   },*/
 
   computed: {
-    ...mapState(["playlists", "songs", "currentPlaylist"]),
+    ...mapState(["playlists", "currentPlaylistSongs", "currentPlaylistStored"]),
   },
 
   methods: {},
