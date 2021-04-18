@@ -20,7 +20,7 @@
           :song="song"
         />
       </div>
-
+      
       <player />
     </div>
   </div>
