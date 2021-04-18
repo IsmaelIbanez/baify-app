@@ -79,6 +79,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  
   background-color: rgb(24, 24, 24);
   width: 100%;
   height: 70px;
