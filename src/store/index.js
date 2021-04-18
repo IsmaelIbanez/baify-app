@@ -14,6 +14,7 @@ export default new Vuex.Store({
     currentPlaylist: {},
     currentPlaylistSongs: [],
     matchedSong: [],
+    localStorage: [],
 
     playlists: [{
       name: "Relax",
@@ -290,8 +291,18 @@ export default new Vuex.Store({
       state.playlists.forEach(playlist => {
         if (playlist.name == state.currentPlaylistStored) {
           state.currentPlaylist = playlist
+
+         /*if (playlist.name == "Favourites") {
+            state.localStorage = JSON.parse(localStorage.getItem("favouriteSongs"))
+            state.currentPlaylistSongs = localStorage
+            state.currentPlaylistSongs.forEach(song => {
+              state.currentPlaylistStored[0].songs.push(song)
+            })
+          }*/
         }
       })
+
+
 
       state.currentPlaylist.songs.forEach(songToStore => {
         state.matchedSong = state.songs.filter(song => song.key == songToStore)
@@ -309,19 +320,8 @@ export default new Vuex.Store({
     addToFavourite(state, songKey) {
       state.currentPlaylistStored = state.playlists.filter(playlist => playlist.name == "Favourites")
       state.currentPlaylistStored[0].songs.push(songKey)
-    }
+      localStorage.setItem("favouriteSongs", JSON.stringify(state.currentPlaylistStored[0].songs))
+    },
 
-  },
-
-  created(state) {
-    state.current = state.song[state.index];
-    state.player.src = state.currentSong.src;
-
-    if (localStorage.getItem("currentPlaylist") != "") {
-      state.currentPlaylist = localStorage.getItem("currentPlaylist");
-    }
-  },
-
-  getters: {
   }
 })

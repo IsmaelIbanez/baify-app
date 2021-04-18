@@ -1,7 +1,8 @@
 <template>
     <div class="my-img-container">
         <div class="song">
-          {{song.title}} - {{song.artist}} <button @click="play(song)">Play</button><button @click="addToFavourite(song.key)">Fav</button>
+          {{song.title}} - {{song.artist}} <button @click="play(song)">Play</button>
+          <button @click="addToFavourite(song.key)">Fav</button>
         </div>
       </div>
 </template>
@@ -29,7 +30,7 @@ export default {
   methods: {
       ...mapMutations({
         play: 'play',
-        addToFavourite: 'addToFavourite'
+        addToFavourite: 'addToFavourite',
       }),  
 },
 }
