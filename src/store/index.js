@@ -284,6 +284,7 @@ export default new Vuex.Store({
       state.playlists.forEach(playlist => {
         if(playlist.name == state.currentPlaylistStored){
           state.currentPlaylist = playlist
+          console.log(state.currentPlaylist)
         }
       })
       
@@ -291,17 +292,16 @@ export default new Vuex.Store({
         state.matchedSong = state.songs.filter(song => song.key == songToStore)
         if(state.matchedSong != null){
           state.currentPlaylistSongs.push(state.matchedSong[0]);
+          console.log(state.matchedSong[0])
         }
       }); 
       
     },
 
-   /* setCurrentPlaylistSongs(state, playlist){
-      playlist.songs.forEach(songToStore => {
-        state.currentPlaylistSongs.push(state.songs.filter(song => song.key == songToStore));
-      }); 
-
-      }*/
+    goBack(state){
+      state.currentPlaylistSongs = [],
+      state.currentPlaylistStored = ""
+    }
   
   },
   actions: {

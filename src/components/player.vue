@@ -1,12 +1,16 @@
 <template>
   <div class="player">
-    <div class="current-ta">
-       <br />
-      {{ currentSong.title }} - {{ currentSong.artist }}
-    </div>
     <div class="controls">
+      <div class="current-ta">
+        <br />
+        {{ currentSong.title }} - {{ currentSong.artist }}
+      </div>
       <div>
-        <button class="prev button is-ghost" @click="play(songs[songs.indexOf(currentSong) - 1])" size="is-medium">
+        <button
+          class="prev button is-ghost"
+          @click="play(songs[songs.indexOf(currentSong) - 1])"
+          size="is-medium"
+        >
           <b-icon pack="fas" icon="backward" size="is-small"></b-icon>
         </button>
         <button
@@ -43,7 +47,11 @@
         <b-icon pack="fas" icon="volume-down"></b-icon>
       </div>
       <div class="volume-slider">
-        <b-slider type="is-primary" @change="setVolume(aria-valuenow)" :value="50"></b-slider>
+        <b-slider
+          type="is-primary"
+          @change="setVolume(this.value)"
+          :value="50"
+        ></b-slider>
       </div>
     </div>
   </div>
@@ -60,13 +68,13 @@ export default {
   },
 
   methods: {
-      ...mapMutations({
-        play: 'play',
-        pause: 'pause',
-        next: 'next',
-        prev: 'prev',
-        setVolume: 'setVolume'
-      }),  
-},
-}
+    ...mapMutations({
+      play: "play",
+      pause: "pause",
+      next: "next",
+      prev: "prev",
+      setVolume: "setVolume",
+    }),
+  },
+};
 </script>

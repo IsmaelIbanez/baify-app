@@ -28,7 +28,7 @@ export default {
   },
 
   methods: {
-      ...mapMutations(["play", "goToPlaylist"]),  
+      ...mapMutations(["goToPlaylist"]),  
 },
 }
 </script>

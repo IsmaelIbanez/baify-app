@@ -11,12 +11,15 @@
           :playlist="playlist"
         />
       </div>
-      
-      <div v-else>
-         <song v-for="song in this.currentPlaylistSongs" :key="song.key" :song="song" />
-      </div>
 
-     
+      <div v-else>
+        <button @click="goBack">Back</button>
+        <song
+          v-for="song in this.currentPlaylistSongs"
+          :key="song.key"
+          :song="song"
+        />
+      </div>
 
       <player />
     </div>
@@ -26,7 +29,7 @@
 <script>
 import player from "./components/player.vue";
 import playlists from "./components/playlists.vue";
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import song from "./components/song.vue";
 
 export default {
@@ -37,19 +40,15 @@ export default {
     song,
   },
 
-  /* Songsdata() {
-    return {
-      current: {},
-      isPlaying: false,
-      player: new Audio(),
-    };
-  },*/
-
   computed: {
     ...mapState(["playlists", "currentPlaylistSongs", "currentPlaylistStored"]),
   },
 
-  methods: {},
+  methods: {
+    ...mapMutations({
+      goBack: "goBack",
+    }),
+  },
 
   created() {},
 };
