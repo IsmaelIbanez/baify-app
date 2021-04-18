@@ -1,7 +1,7 @@
 <template>
     <div class="my-img-container">
         <div class="song">
-          {{song.title}} - {{song.artist}} <button @click="play(song)">Play</button>
+          {{song.title}} - {{song.artist}} <button @click="play(song)">Play</button><button @click="addToFavourite(song.key)">Fav</button>
         </div>
       </div>
 </template>
@@ -11,7 +11,6 @@ import { mapState, mapMutations } from "vuex";
 
 
 export default {
-  components: { },
   name: "song",
 
   props:{
@@ -29,7 +28,8 @@ export default {
 
   methods: {
       ...mapMutations({
-        play: 'play'
+        play: 'play',
+        addToFavourite: 'addToFavourite'
       }),  
 },
 }
