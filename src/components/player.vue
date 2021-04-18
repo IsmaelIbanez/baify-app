@@ -70,3 +70,19 @@ export default {
 },
 }
 </script>
+
+<style>
+.player {
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(24, 24, 24);
+  width: 100%;
+  height: 70px;
+  padding: 0 20px 0 20px;
+}
+
+</style>

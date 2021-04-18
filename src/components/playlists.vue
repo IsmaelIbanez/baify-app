@@ -32,3 +32,18 @@ export default {
 },
 }
 </script>
+<style>
+
+img {
+  width: 12vw;
+  border-radius: 20px;
+  margin: 20px;
+  cursor: pointer;
+  opacity: 55%;
+  transition: opacity 0.75s;
+}
+img:hover {
+  opacity: 1;
+}
+/* END Playlist Design */
+</style>

@@ -1,10 +1,14 @@
 <template>
   <div id="app">
     <div class="my-container">
-      <h1 class="my-title">Baify</h1>
-
-      <div v-if="currentPlaylistStored == ''">
-        <h3 class="my-subtitle">Select a playlist</h3>
+      <div class="title-subtitle">
+          <a href="."><h1 class="my-title">Baify</h1></a>
+          <h3 class="my-subtitle">Select a playlist</h3>
+        
+      </div>
+      
+      <div class="my-second-container" v-if="currentPlaylistStored == ''">
+        
         <playlists
           v-for="playlist in this.playlists"
           :key="playlist.name"
