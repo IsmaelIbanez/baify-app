@@ -162,7 +162,7 @@ export default new Vuex.Store({
         src: require("../assets/music/Workout/workout.mp3"), 
       },
       {
-        key: "000020",
+        key: "00020",
         title: "Chillout me",
         artist: "ANTONY RAIJEKOV",
         src: require("../assets/music/Chill/Chill.mp3"),      
