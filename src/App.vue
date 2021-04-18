@@ -59,7 +59,6 @@ export default {
 </script>
 
 <style>
-<<<<<<< HEAD
 html, body {
   margin: 0;
 }
@@ -146,8 +145,6 @@ button {
   margin: 5px;
 }
 
-=======
 @import "styles/styles.css";
->>>>>>> develop
 </style>
 
