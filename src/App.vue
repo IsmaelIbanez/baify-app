@@ -16,8 +16,7 @@
          <song v-for="song in this.currentPlaylistSongs" :key="song.key" :song="song" />
       </div>
 
-     
-
+  
       <player />
     </div>
   </div>
