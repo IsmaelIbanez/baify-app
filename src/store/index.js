@@ -44,7 +44,13 @@ export default new Vuex.Store({
       name: "Rock",
       img: require("../assets/images/rock.jpg"),
       songs: ["00026", "00027" , "00028", "00029", "00030"]
-    }
+    },
+    {
+      name: "Favourites",
+      img: require("../assets/images/rock.jpg"),
+      songs: []
+    }, 
+
   ],
     songs: [
       {
