@@ -1,4 +1,5 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3c51466b-b2fd-46f1-8e88-af03b982ed04/deploy-status)](https://app.netlify.com/sites/baify/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4c78a535-721c-4c74-a16e-a966abaca75e/deploy-status)](https://app.netlify.com/sites/baify-app/deploys)
+
 # baify-app
 
 ## Project setup
