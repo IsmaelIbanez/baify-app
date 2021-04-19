@@ -34,6 +34,7 @@ import song from "./components/song.vue";
 
 export default {
   name: "App",
+
   components: {
     player,
     playlists,
@@ -47,10 +48,17 @@ export default {
   methods: {
     ...mapMutations({
       goBack: "goBack",
+      checkLocaStoragePlaylist: 'checkLocaStoragePlaylist',
+      goToPlaylist: "goToPlaylist"
     }),
   },
 
-  created() {},
+  created() {
+    if (localStorage.getItem("playlist")){
+      this.goToPlaylist(localStorage.getItem("playlist"))
+      localStorage.removeItem("playlist")
+    }
+  },
 };
 </script>
 
